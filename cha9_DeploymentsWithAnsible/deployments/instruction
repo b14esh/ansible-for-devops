@@ -1,0 +1,18 @@
+# Provisioning Plan
+1. Install git (app is version controlled)
+2. Install Node.js (compilation requires Javascript)
+3. Install Ruby
+4. Install Passenger with Nginx
+5. Install any dependencies and prepare the server for deployment
+
+# Deployment Plan
+1. Use git to check out latest production release
+2. Copy over a secrets.yml template with secure app data required for
+running the app
+3. Make sure all the gems required for the app are installed (via Bundler)
+4. Create the database (if it doesnt already exist).
+5. Run rake tasks to make sure the database scheme is up-to-date and all assets
+(like JS and CSS) are compiled
+6. Make sure the app files ownership is set correctly so Passenger and Nginx
+serve them without error.
+7. If any changes or updates were made restart Passenger and Nginx
