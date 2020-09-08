@@ -1,0 +1,21 @@
+---
+# Working with files
+- name:
+  copy:
+    src: example.conf
+    dest: /etc/myapp/example.conf
+    mode: 0644
+
+# Working with template
+- name: Copy configuration file to server using a template
+  template:
+    src: example.xml.j2
+    dest: /etc/myapp/example.xml
+    mode: 0644
+
+- name: Install Node.js (npm plus all its dependencies).
+  yum: name=npm state=present enablerepo=epel
+
+- name: Install forever module (to run our Node.js app).
+  npm: name={{ item }} global=yes state=present
+  with_items: "{{ node_npm_modules }}"
