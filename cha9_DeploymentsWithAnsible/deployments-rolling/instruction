@@ -1,0 +1,4 @@
+# Check test
+for i in {2..5}; \
+    do curl -w "\n" "http://192.168.3.$i:8080/hello/john"; \
+  done
