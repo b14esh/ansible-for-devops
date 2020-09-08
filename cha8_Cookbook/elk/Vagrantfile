@@ -16,8 +16,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     libvirt.memory = 4096
     libvirt.graphics_type = "none"
     libvirt.cpus = 1
-    libvirt.management_network_name = 'vagrant-libvirt1'
-    libvirt.management_network_address = '192.168.124.0/24'
+    # libvirt.management_network_name = 'vagrant-libvirt1'
+    # libvirt.management_network_address = '192.168.124.0/24'
   end
 
   # ELK server.

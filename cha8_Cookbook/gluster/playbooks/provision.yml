@@ -5,6 +5,18 @@
   vars_files:
     - vars.yml
 
+  pre_tasks:
+    - name: Set DNS 8.8.8.8
+      include_role:
+        name: dns # https://github.com/Oefenweb/ansible-dns
+
+    - name: Install apt-transport-https
+      apt: name=apt-transport-https state=latest
+
+    - name: Update apt cache if needed.
+      apt: update_cache=yes cache_valid_time=86400
+
+
   roles:
     - geerlingguy.firewall
     - geerlingguy.glusterfs
